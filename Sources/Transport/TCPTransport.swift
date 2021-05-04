@@ -78,7 +78,7 @@ public class TCPTransport: Transport {
         }
         let parameters = NWParameters(tls: tlsOptions, tcp: options)
         
-        let conn = NWConnection(host: NWEndpoint.Host.ipv4(IPv4Address(parts.host)!), port: NWEndpoint.Port(rawValue: UInt16(parts.port))!, using: parameters)
+        let conn = NWConnection(host: NWEndpoint.Host(stringLiteral: parts.host), port: NWEndpoint.Port(rawValue: UInt16(parts.port))!, using: parameters)
         connection = conn
         start()
     }
